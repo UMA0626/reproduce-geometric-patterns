@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/reproduce-geometric-patterns/static/css/main.e6c13ad2.css",
+    "main.js": "/reproduce-geometric-patterns/static/js/main.d8c99c7c.js",
+    "static/js/845.d14e60d4.chunk.js": "/reproduce-geometric-patterns/static/js/845.d14e60d4.chunk.js",
+    "static/js/787.0d5d42c8.chunk.js": "/reproduce-geometric-patterns/static/js/787.0d5d42c8.chunk.js",
+    "static/media/sound_ソ2.mp3": "/reproduce-geometric-patterns/static/media/sound_ソ2.940409d7870f7c91dad3.mp3",
+    "static/media/sound_ド2.mp3": "/reproduce-geometric-patterns/static/media/sound_ド2.44e422ef2cc6bca95489.mp3",
+    "static/media/sound_ラ2.mp3": "/reproduce-geometric-patterns/static/media/sound_ラ2.216910f887f6ae6249d7.mp3",
+    "static/media/sound_ソ1.mp3": "/reproduce-geometric-patterns/static/media/sound_ソ1.d1d93cccd5f51ae7004e.mp3",
+    "static/media/sound_レ3.mp3": "/reproduce-geometric-patterns/static/media/sound_レ3.1955f3a6d4901aa6bfbd.mp3",
+    "static/media/sound_シ♭1.mp3": "/reproduce-geometric-patterns/static/media/sound_シ♭1.4d0e9f3b3f83df38270b.mp3",
+    "static/media/sound_ラ1.mp3": "/reproduce-geometric-patterns/static/media/sound_ラ1.6038f08f351f7cfb9a22.mp3",
+    "static/media/sound_ミ♭3.mp3": "/reproduce-geometric-patterns/static/media/sound_ミ♭3.5839bd0d175babec83a7.mp3",
+    "static/media/sound_ド3.mp3": "/reproduce-geometric-patterns/static/media/sound_ド3.d3fa712109f451633131.mp3",
+    "static/media/sound_ファ2.mp3": "/reproduce-geometric-patterns/static/media/sound_ファ2.e3ac88aa597690d4b4ff.mp3",
+    "static/media/sound_ミ♭2.mp3": "/reproduce-geometric-patterns/static/media/sound_ミ♭2.2f61073cc8a2aa1412a2.mp3",
+    "static/media/sound_レ2.mp3": "/reproduce-geometric-patterns/static/media/sound_レ2.be5c2049581037a8928e.mp3",
+    "static/media/sound_ファ3.mp3": "/reproduce-geometric-patterns/static/media/sound_ファ3.660f2909bdf55a72e913.mp3",
+    "static/media/sound_ソ3.mp3": "/reproduce-geometric-patterns/static/media/sound_ソ3.801803390c7e99303349.mp3",
+    "static/media/sound_シ♭3.mp3": "/reproduce-geometric-patterns/static/media/sound_シ♭3.bbe7634e9bb05d7b6618.mp3",
+    "static/media/sound_ラ3.mp3": "/reproduce-geometric-patterns/static/media/sound_ラ3.3a5d64e928c4a98a379b.mp3",
+    "static/media/sound_ド4.mp3": "/reproduce-geometric-patterns/static/media/sound_ド4.1eeb11dad13d83fe4eae.mp3",
+    "static/media/sound_シ♭2.mp3": "/reproduce-geometric-patterns/static/media/sound_シ♭2.a6ef7ba5554a3df7da97.mp3",
+    "index.html": "/reproduce-geometric-patterns/index.html",
+    "main.e6c13ad2.css.map": "/reproduce-geometric-patterns/static/css/main.e6c13ad2.css.map",
+    "main.d8c99c7c.js.map": "/reproduce-geometric-patterns/static/js/main.d8c99c7c.js.map",
+    "845.d14e60d4.chunk.js.map": "/reproduce-geometric-patterns/static/js/845.d14e60d4.chunk.js.map",
+    "787.0d5d42c8.chunk.js.map": "/reproduce-geometric-patterns/static/js/787.0d5d42c8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.d8c99c7c.js"
+  ]
+}
