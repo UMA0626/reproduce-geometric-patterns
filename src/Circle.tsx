@@ -5,15 +5,16 @@ const MIN_R = 50;
 
 const Circle = () => {
   const [angle, setAngle] = useState(0);
+  const delays = [...Array(18).keys()].map((_, i) => 22 / (i + 5)).reverse();
 
   useEffect(() => {
     const id = setInterval(() => {
       setAngle(angle + 1);
-    }, 6);
+    }, 4);
     return () => clearInterval(id);
   }, [angle]);
 
-  const circlePositions = getCirclePositions(angle, getRadiuses(18));
+  const circlePositions = getCirclePositions(angle, delays, getRadiuses(18));
   const linePositions = getLinePositions(circlePositions);
 
   return (
@@ -44,8 +45,8 @@ const getRadiuses = (pointNum: number): number[] => {
   return [MAX_R, ...middlePoints, MIN_R];
 }
 
-const getCirclePositions = (angle: number, radians: number[]): CirclePosition[] => {
-  return radians.map(radius => getPosition(angle, radius));
+const getCirclePositions = (angle: number, delays: number[], radians: number[]): CirclePosition[] => {
+  return radians.map((radius, i) => getPosition(angle / delays[i], radius));
 }
 const getPosition = (angle: number, radius: number): CirclePosition => {
   const xradian = Math.PI / 180 * angle;
