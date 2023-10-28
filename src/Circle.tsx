@@ -23,7 +23,9 @@ const MAX_R = 300;
 const MIN_R = 50;
 
 const Circle = () => {
-  const [angle, setAngle] = useState(0);
+  const [angle, setAngle] = useState(-1);
+  const [speed, setSpeed] = useState(1);
+  const [isStart, setIsStart] = useState(false);
   const delays = [...Array(18).keys()].map((_, i) => 22 / (i + 5)).reverse();
   const [playC4] = useSound(C4, { volume: 0.2 });
   const [playB3f] = useSound(B3f, { volume: 0.2 });
@@ -45,33 +47,37 @@ const Circle = () => {
   const [playG1] = useSound(G1, { volume: 0.2 });
 
   useEffect(() => {
+    if (!isStart) return;
+    const add = speed >= 1 ? 1 * speed : 1 / Math.abs(speed - 2);
     const id = setInterval(() => {
-      setAngle(angle + 1);
+      setAngle(angle + add);
     }, 4);
     return () => clearInterval(id);
-  }, [angle]);
+  }, [angle, isStart, speed]);
 
   const circlePositions = getCirclePositions(angle, delays, getRadiuses(18));
   const linePositions = getLinePositions(circlePositions);
 
-  if (angle / delays[0] % 360 === 0) playC4();
-  if (angle / delays[1] % 360 < 1) playB3f();
-  if (angle / delays[2] % 360 < 1) playA3();
-  if (angle / delays[3] % 360 < 1) playG3();
-  if (angle / delays[4] % 360 < 1) playF3();
-  if (angle / delays[5] % 360 < 1) playE3f();
-  if (angle / delays[6] % 360 < 1) playD3();
-  if (angle / delays[7] % 360 < 1) playC3();
-  if (angle / delays[8] % 360 < 1) playB2f();
-  if (angle / delays[9] % 360 < 1) playA2();
-  if (angle / delays[10] % 360 < 1) playG2();
-  if (angle / delays[11] % 360 < 1) playF2();
-  if (angle / delays[12] % 360 < 1) playE2f();
-  if (angle / delays[13] % 360 < 1) playD2();
-  if (angle / delays[14] % 360 < 1) playC2();
-  if (angle / delays[15] % 360 < 1) playB1f();
-  if (angle / delays[16] % 360 < 1) playA1();
-  if (angle / delays[17] % 360 < 1) playG1();
+  if (isStart) {
+    if (angle / delays[0] % 360 === 0) playC4();
+    if (angle / delays[1] % 360 < 1) playB3f();
+    if (angle / delays[2] % 360 < 1) playA3();
+    if (angle / delays[3] % 360 < 1) playG3();
+    if (angle / delays[4] % 360 < 1) playF3();
+    if (angle / delays[5] % 360 < 1) playE3f();
+    if (angle / delays[6] % 360 < 1) playD3();
+    if (angle / delays[7] % 360 < 1) playC3();
+    if (angle / delays[8] % 360 < 1) playB2f();
+    if (angle / delays[9] % 360 < 1) playA2();
+    if (angle / delays[10] % 360 < 1) playG2();
+    if (angle / delays[11] % 360 < 1) playF2();
+    if (angle / delays[12] % 360 < 1) playE2f();
+    if (angle / delays[13] % 360 < 1) playD2();
+    if (angle / delays[14] % 360 < 1) playC2();
+    if (angle / delays[15] % 360 < 1) playB1f();
+    if (angle / delays[16] % 360 < 1) playA1();
+    if (angle / delays[17] % 360 < 1) playG1();
+  }
 
   return (
     <div style={{ textAlign: 'center' }}>
@@ -83,6 +89,14 @@ const Circle = () => {
         {circlePositions.map((point, i) => <circle key={'circle' + i} r='5' cx={point.x} cy={point.y} fill='red' />)}
         {linePositions.map((point, i) => <line key={'line' + i} x1={point.first.x} y1={point.first.y} x2={point.last.x} y2={point.last.y} stroke='black'></line>)}
       </svg>
+      <div style={{ display: 'flex', justifyContent: 'center', columnGap: '20px' }}>
+        <button onClick={() => setIsStart(true)}>start</button>
+        <button onClick={() => setIsStart(false)}>stop</button>
+        <button onClick={() => { setIsStart(false); setAngle(-1); setSpeed(1) }}>reset</button>
+        <button onClick={() => setSpeed(speed + 1)}>speedUp</button>
+        <button onClick={() => setSpeed(speed - 1)}>speedDown</button>
+      </div>
+      <div>{isStart ? 'start' : 'stop'}　　　speed: x{speed}</div>
     </div>
   );
 }
