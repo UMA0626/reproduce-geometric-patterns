@@ -14,6 +14,7 @@ const Circle = () => {
   }, [angle]);
 
   const circlePositions = getCirclePositions(angle, getRadiuses(18));
+  const linePositions = getLinePositions(circlePositions);
 
   return (
     <div style={{ textAlign: 'center' }}>
@@ -23,6 +24,7 @@ const Circle = () => {
         <line x1={MAX_R} y1='0' x2={MAX_R} y2={MAX_R - MIN_R} stroke='gray' />
 
         {circlePositions.map((point, i) => <circle key={'circle' + i} r='5' cx={point.x} cy={point.y} fill='red' />)}
+        {linePositions.map((point, i) => <line key={'line' + i} x1={point.first.x} y1={point.first.y} x2={point.last.x} y2={point.last.y} stroke='black'></line>)}
       </svg>
     </div>
   );
@@ -56,10 +58,25 @@ const getPosition = (angle: number, radius: number): CirclePosition => {
   };
 }
 
+const getLinePositions = (circlePositions: CirclePosition[]): LinePosition[] => {
+  return circlePositions.reduce((acc, cur, i) => {
+    if (i === 0) return [];
+    acc.push({
+      first: circlePositions[i - 1],
+      last: cur
+    });
+    return acc;
+  }, [] as LinePosition[]);
+}
+
 export default Circle;
 
 
 type CirclePosition = {
   x: number,
   y: number
+}
+type LinePosition = {
+  first: CirclePosition,
+  last: CirclePosition
 }
